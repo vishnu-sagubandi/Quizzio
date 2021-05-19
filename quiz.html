@@ -19,16 +19,5 @@
         api_url.searchParams.append(key, value);
       }
     });
-    console.log(api_url);
-    async function getapi(url) {
-      // Storing response
-      const response = await fetch(url);
-
-      // Storing data in form of JSON
-      var data = await response.json();
-      console.log(data);
-    }
-    // Calling that async function
-    getapi(api_url);
   </script>
 </html>
