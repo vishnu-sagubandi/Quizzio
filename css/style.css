@@ -334,14 +334,16 @@ footer button.show {
   font-weight: 500;
 }
 
-.result_box .score_text span {
-  display: flex;
+.result_box .score_text {
+  text-align: center;
+}
+.result_box .score_text p {
   margin: 10px 0;
   font-size: 18px;
   font-weight: 500;
 }
 
-.result_box .score_text span p {
+.result_box .score_text p span {
   padding: 0 4px;
   font-weight: 600;
 }

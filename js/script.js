@@ -9,9 +9,16 @@ const time_line = document.querySelector("header .time_line");
 const timeText = document.querySelector(".timer .time_left_txt");
 const timeCount = document.querySelector(".timer .timer_sec");
 
+function cleanup(s){
+    s = s.replace("&quot;", "''")
+    s = s.replace("&#039;", "'")
+    s = s.replace("&amp;", "&")
+    return s
+}
+
 // if exitQuiz button clicked
 exit_btn.onclick = ()=>{
-    window.location.replace("http://127.0.0.1:5500/popup_modal.html");
+    window.location.replace("http://127.0.0.1:5500/index.html");
 }
 
 // if continueQuiz button clicked
@@ -42,7 +49,7 @@ restart_quiz.onclick = ()=>{
 
 // if quitQuiz button clicked
 quit_quiz.onclick = ()=>{
-    window.location.replace("http://127.0.0.1:5500/popup_modal.html");
+    window.location.replace("http://127.0.0.1:5500/index.html");
      //redirect to main page
 }
 
@@ -97,8 +104,8 @@ let crossIconTag = '<div class="icon cross"><i class="fas fa-times"></i></div>';
 function optionSelected(answer){
     clearInterval(counter); //clear counter
     clearInterval(counterLine); //clear counterLine
-    let userAns = answer.childNodes[0].innerHTML; //getting user selected option
-    let correcAns = questions[que_count].answer; //getting correct answer from array
+    let userAns = answer.innerText; //getting user selected option
+    let correcAns = cleanup(questions[que_count].answer); //getting correct answer from array
     const allOptions = option_list.children.length; //getting all option items
     
     if(userAns == correcAns){ //if user selected option is equal to array's correct answer
@@ -111,8 +118,6 @@ function optionSelected(answer){
         answer.classList.add("incorrect"); //adding red color to correct selected option
         answer.insertAdjacentHTML("beforeend", crossIconTag); //adding cross icon to correct selected option
         console.log("Wrong Answer");
-        console.log(userAns);
-        console.log(correcAns);
 
         for(i=0; i < allOptions; i++){
             if(option_list.children[i].textContent == correcAns){ //if there is an option which is matched to an array answer 
@@ -133,17 +138,21 @@ function showResult(){
     quiz_box.classList.remove("activeQuiz"); //hide quiz box
     result_box.classList.add("activeResult"); //show result box
     const scoreText = result_box.querySelector(".score_text");
-    if (userScore > 3){ // if user scored more than 3
+    if ((userScore/questions.length*5) == 5){ // if user scored more than 3
         //creating a new span tag and passing the user score number and total question number
-        let scoreTag = '<span>and congrats! 🎉, You got <p>'+ userScore +'</p> out of <p>'+ questions.length +'</p></span>';
+        let scoreTag = '<p>and congrats! 🎉, You got <p>'+ userScore +'</span> out of <span>'+ questions.length +'</span></p>';
         scoreText.innerHTML = scoreTag;  //adding new span tag inside score_Text
     }
-    else if(userScore > 1){ // if user scored more than 1
-        let scoreTag = '<span>and nice 😎, You got <p>'+ userScore +'</p> out of <p>'+ questions.length +'</p></span>';
+    else if((userScore/questions.length*5) > 3){ // if user scored more than 1
+        let scoreTag = '<p>and nice 😎, You got <span>'+ userScore +'</span> out of <span>'+ questions.length +'</span></p>';
+        scoreText.innerHTML = scoreTag;
+    }
+    else if((userScore/questions.length*5) > 1){ // if user scored more than 1
+        let scoreTag = '<p> You got <span>'+ userScore +'</span> out of <span>'+ questions.length +'</span><br/>and you can score better🙂.</p>';
         scoreText.innerHTML = scoreTag;
     }
     else{ // if user scored less than 1
-        let scoreTag = '<span>and sorry 😐, You got only <p>'+ userScore +'</p> out of <p>'+ questions.length +'</p></span>';
+        let scoreTag = '<p>You got only <span>'+ userScore +'</span> out of <span>'+ questions.length +'</span>and sorry 😐 . </br>Better luck next time!!</p>';
         scoreText.innerHTML = scoreTag;
     }
 }
