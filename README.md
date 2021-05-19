@@ -2,7 +2,7 @@
 
 A simple quiz app built using asynchronous javascript (AJAX).
 
-## Specification
+## Specifications
 
 - **Quick And Simple**
   - The quiz is meant to be fun. The registration of the quiz application should be quick and the user experience should be simple.
