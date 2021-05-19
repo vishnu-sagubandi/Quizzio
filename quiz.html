@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Results</title>
+  </head>
+  <body>
+    Hello
+  </body>
+  <script>
+    var api_url = new URL("https://opentdb.com/api.php?");
+    console.log(api_url);
+    const params = new URLSearchParams(document.location.search);
+    params.forEach((value, key) => {
+      if (value != "any") {
+        console.log(value);
+        api_url.searchParams.append(key, value);
+      }
+    });
+    console.log(api_url);
+    async function getapi(url) {
+      // Storing response
+      const response = await fetch(url);
+
+      // Storing data in form of JSON
+      var data = await response.json();
+      console.log(data);
+    }
+    // Calling that async function
+    getapi(api_url);
+  </script>
+</html>
