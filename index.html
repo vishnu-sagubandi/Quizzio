@@ -1,94 +1,112 @@
-<!-- Created By Vishnu Sagubandi  -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Awesome Quiz App | CodingNepal</title>
-    <link rel="stylesheet" href="style.css" />
-    <!-- FontAweome CDN Link for Icons-->
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <link rel="stylesheet" href="https://www.css-spinners.com/css/spinners.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Modal</title>
+    <link href="modal_style.css" rel="stylesheet" />
   </head>
   <body>
-      <div id="preloaderbody" class="preloader-body">
-      <div class="preloader">
-      <span class="whirly-loader">Loading&#8230</span>
+    <div class="container">
+      <div class="Landing-section">
+        <img class="logo" src="quiz.svg" alt="Quiz" />
+        <div class="wlcm-text">
+          <span style="font-size: 2rem; color: rgb(247, 195, 132)"
+            ><strong>Welcome to Quizzio webapp</strong></span
+          ><br />Test you knowledge here
+        </div>
+        <div class="home-btns">
+          <button data-modal-target="#modal">Start</button>
+          <!-- <button data-modal-target="#highscore_modal">High Score</button> -->
+        </div>
       </div>
     </div>
-    <!-- Info Box -->
-    <div class="info_box activeInfo">
-      <div class="info-title"><span>Some Rules of this Quiz</span></div>
-      <div class="info-list">
-        <div class="info">
-          1. You will have only <span>15 seconds</span> per each question.
+    <div class="modal" id="modal">
+      <div class="modal-header">
+        <div class="title">
+          <span class="title-bold">Quiz API</span><br />Please submit the form
+          below to start your quiz
         </div>
-        <div class="info">
-          2. Once you select your answer, it can't be undone.
-        </div>
-        <div class="info">
-          3. You can't select any option once time goes off.
-        </div>
-        <div class="info">
-          4. You can't exit from the Quiz while you're playing.
-        </div>
-        <div class="info">
-          5. You'll get points on the basis of your correct answers.
-        </div>
+        <button data-close-button class="close-button">&times;</button>
       </div>
-      <div class="buttons">
-        <button class="quit">Exit Quiz</button>
-        <button class="restart">Continue</button>
+      <div class="modal-body">
+        <form action="index.html" method="GET" class="form-api">
+          <label for="amount">Number of Questions:</label>
+          <input
+            type="number"
+            name="amount"
+            id="amount"
+            class="form-control"
+            min="1"
+            max="50"
+            value="10"
+          />
+
+          <br />
+
+          <label for="category">Select Category: </label>
+          <select name="category" id="category" class="form-control">
+            <option value="any">Any Category</option>
+            <option value="9">General Knowledge</option>
+            <option value="10">Entertainment: Books</option>
+            <option value="11">Entertainment: Film</option>
+            <option value="12">Entertainment: Music</option>
+            <option value="13">Entertainment: Musicals &amp; Theatres</option>
+            <option value="14">Entertainment: Television</option>
+            <option value="15">Entertainment: Video Games</option>
+            <option value="16">Entertainment: Board Games</option>
+            <option value="17">Science &amp; Nature</option>
+            <option value="18">Science: Computers</option>
+            <option value="19">Science: Mathematics</option>
+            <option value="20">Mythology</option>
+            <option value="21">Sports</option>
+            <option value="22">Geography</option>
+            <option value="23">History</option>
+            <option value="24">Politics</option>
+            <option value="25">Art</option>
+            <option value="26">Celebrities</option>
+            <option value="27">Animals</option>
+            <option value="28">Vehicles</option>
+            <option value="29">Entertainment: Comics</option>
+            <option value="30">Science: Gadgets</option>
+            <option value="31">
+              Entertainment: Japanese Anime &amp; Manga
+            </option>
+            <option value="32">Entertainment: Cartoon &amp; Animations</option>
+          </select>
+
+          <br />
+
+          <label for="difficulty">Select Difficulty: </label>
+          <select name="difficulty" id="difficulty" class="form-control">
+            <option value="any">Any Difficulty</option>
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+
+          <br />
+          <input type="submit" value="Submit" />
+        </form>
       </div>
     </div>
-
-    <!-- Quiz Box -->
-    <div class="quiz_box">
-      <header>
-        <div class="title">Awesome Quiz Application</div>
-        <div class="timer">
-          <div class="time_left_txt">Time Left</div>
-          <div class="timer_sec">15</div>
+    <!-- <div class="modal" id="highscore_modal">
+      <div class="modal-header">
+        <div class="title">
+          <span class="title-bold">High Scores</span><br />You can see
+          highscores here
         </div>
-        <div class="time_line"></div>
-      </header>
-      <section>
-        <div class="que_text">
-          <!-- Here I've inserted question from JavaScript -->
-        </div>
-        <div class="option_list">
-          <!-- Here I've inserted options from JavaScript -->
-        </div>
-      </section>
-
-      <!-- footer of Quiz Box -->
-      <footer>
-        <div class="total_que">
-          <!-- Here I've inserted Question Count Number from JavaScript -->
-        </div>
-        <button class="next_btn">Next Que</button>
-      </footer>
-    </div>
-
-    <!-- Result Box -->
-    <div class="result_box">
-      <div class="icon">
-        <i class="fas fa-crown"></i>
+        <button data-close-button class="close-button">&times;</button>
       </div>
-      <div class="complete_text">You've completed the Quiz!</div>
-      <div class="score_text">
-        <!-- Here I've inserted Score Result from JavaScript -->
+      <div class="modal-body">
+        <h1>This is a highscores modal</h1>
+        <h3>Vishnu : 50</h3>
+        <h3>Matlab : 30</h3>
+        <h3>Matlab : 30</h3>
       </div>
-      <div class="buttons">
-        <button class="restart">Replay Quiz</button>
-        <button class="quit">Quit Quiz</button>
-      </div>
-    </div>
-
-    <!-- Inside this JavaScript file I've inserted Questions and Options only -->
-    <script src="js/questions.js"></script>
-
-    <!-- Inside this JavaScript file I've coded all Quiz Codes -->
-    <script src="js/script.js"></script>
+    </div> -->
+    <div id="overlay"></div>
+    <script src="main.js"></script>
   </body>
 </html>
