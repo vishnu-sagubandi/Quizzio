@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Modal</title>
-    <link href="modal_style.css" rel="stylesheet" />
+    <link href="css/modal_style.css" rel="stylesheet" />
   </head>
   <body>
     <div class="container">
       <div class="Landing-section">
-        <img class="logo" src="quiz.svg" alt="Quiz" />
+        <img class="logo" src="assets/quiz.svg" alt="Quiz" />
         <div class="wlcm-text">
           <span style="font-size: 2rem; color: rgb(247, 195, 132)"
             ><strong>Welcome to Quizzio webapp</strong></span
@@ -31,7 +31,7 @@
         <button data-close-button class="close-button">&times;</button>
       </div>
       <div class="modal-body">
-        <form action="index.html" method="GET" class="form-api">
+        <form action="/quiz.html" method="GET" class="form-api">
           <label for="amount">Number of Questions:</label>
           <input
             type="number"
@@ -107,6 +107,6 @@
       </div>
     </div> -->
     <div id="overlay"></div>
-    <script src="main.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>
