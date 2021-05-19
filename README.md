@@ -1,6 +1,6 @@
 # Quizzio Web app
 
-A simple quiz app built using AJAX.
+A simple quiz app built using asynchronous javascript (AJAX).
 
 ## Specification
 
