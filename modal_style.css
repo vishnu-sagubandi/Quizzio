@@ -131,7 +131,7 @@ body {
   position: absolute;
   top: 10px;
   right: 10px;
-  background-color: rgb(72, 148, 148);
+  background-color: rgba(255, 255, 255, 0.774);
   width: 2rem;
   padding: 0;
   border-radius: 1.5rem;
