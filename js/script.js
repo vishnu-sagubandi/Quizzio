@@ -11,7 +11,7 @@ const timeCount = document.querySelector(".timer .timer_sec");
 
 // if exitQuiz button clicked
 exit_btn.onclick = ()=>{
-    window.location = "http://127.0.0.1:5500/popup_modal.html";
+    window.location.replace("http://127.0.0.1:5500/popup_modal.html");
 }
 
 // if continueQuiz button clicked
@@ -42,7 +42,7 @@ restart_quiz.onclick = ()=>{
 
 // if quitQuiz button clicked
 quit_quiz.onclick = ()=>{
-    window.location = "http://127.0.0.1:5500/popup_modal.html";
+    window.location.replace("http://127.0.0.1:5500/popup_modal.html");
      //redirect to main page
 }
 
