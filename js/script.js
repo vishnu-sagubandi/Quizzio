@@ -18,7 +18,7 @@ function cleanup(s){
 
 // if exitQuiz button clicked
 exit_btn.onclick = ()=>{
-    window.location.replace("http://127.0.0.1:5500/index.html");
+    window.location.replace("https://vishnu-sagubandi.github.io/Quizzio/");
 }
 
 // if continueQuiz button clicked
@@ -49,7 +49,7 @@ restart_quiz.onclick = ()=>{
 
 // if quitQuiz button clicked
 quit_quiz.onclick = ()=>{
-    window.location.replace("http://127.0.0.1:5500/index.html");
+    window.location.replace("https://vishnu-sagubandi.github.io/Quizzio/");
      //redirect to main page
 }
 
