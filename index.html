@@ -69,6 +69,22 @@
           </select>
 
           <br />
+
+          <label for="difficulty">Select Difficulty: </label>
+          <select
+            name="difficulty"
+            id="difficulty"
+            class="form-control"
+            onchange="myFunction()"
+          >
+            <option value="any">Any Difficulty</option>
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+
+          <br />
+
           <label for="amount">Number of Questions:</label>
           <input
             type="number"
@@ -82,42 +98,19 @@
 
           <br />
 
-          <label for="difficulty">Select Difficulty: </label>
-          <select name="difficulty" id="difficulty" class="form-control">
-            <option value="any">Any Difficulty</option>
-            <option value="easy">Easy</option>
-            <option value="medium">Medium</option>
-            <option value="hard">Hard</option>
-          </select>
-
-          <br />
           <input type="hidden" id="type" name="type" value="multiple" />
           <input type="submit" value="Submit" />
         </form>
       </div>
     </div>
-    <!-- <div class="modal" id="highscore_modal">
-      <div class="modal-header">
-        <div class="title">
-          <span class="title-bold">High Scores</span><br />You can see
-          highscores here
-        </div>
-        <button data-close-button class="close-button">&times;</button>
-      </div>
-      <div class="modal-body">
-        <h1>This is a highscores modal</h1>
-        <h3>Vishnu : 50</h3>
-        <h3>Matlab : 30</h3>
-        <h3>Matlab : 30</h3>
-      </div>
-    </div> -->
     <div id="overlay"></div>
     <script src="js/main.js"></script>
     <script>
       function myFunction() {
         var cat_value = document.getElementById("category").value;
+        var difficulty = document.getElementById("difficulty").value;
         var amount_select = document.getElementById("amount");
-        if (cat_value == 19) {
+        if (cat_value == 19 && difficulty == "easy") {
           amount_select.setAttribute("max", "8");
           amount_select.value = 8;
         } else {
