@@ -32,21 +32,13 @@
       </div>
       <div class="modal-body">
         <form action="quiz.html" method="GET" class="form-api">
-          <label for="amount">Number of Questions:</label>
-          <input
-            type="number"
-            name="amount"
-            id="amount"
-            class="form-control"
-            min="1"
-            max="50"
-            value="10"
-          />
-
-          <br />
-
           <label for="category">Select Category: </label>
-          <select name="category" id="category" class="form-control">
+          <select
+            name="category"
+            id="category"
+            class="form-control"
+            onchange="myFunction()"
+          >
             <option value="any">Any Category</option>
             <option value="9">General Knowledge</option>
             <option value="10">Entertainment: Books</option>
@@ -75,6 +67,18 @@
             </option>
             <option value="32">Entertainment: Cartoon &amp; Animations</option>
           </select>
+
+          <br />
+          <label for="amount">Number of Questions:</label>
+          <input
+            type="number"
+            name="amount"
+            id="amount"
+            class="form-control"
+            min="1"
+            max="50"
+            value="10"
+          />
 
           <br />
 
@@ -109,5 +113,18 @@
     </div> -->
     <div id="overlay"></div>
     <script src="js/main.js"></script>
+    <script>
+      function myFunction() {
+        var cat_value = document.getElementById("category").value;
+        var amount_select = document.getElementById("amount");
+        if (cat_value == 19) {
+          amount_select.setAttribute("max", "8");
+          amount_select.value = 8;
+        } else {
+          amount_select.setAttribute("max", "50");
+          amount_select.value = 10;
+        }
+      }
+    </script>
   </body>
 </html>
