@@ -10,7 +10,7 @@
     <!-- FontAweome CDN Link for Icons-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
-  <body>
+  <body onload="reset_zoom()">
       <div id="preloaderbody" class="preloader-body">
       <div class="preloader">
       <span class="whirly-loader">Loading&#8230</span>
@@ -89,5 +89,11 @@
     <script src="js/questions.js"></script>
     <!-- Inside this JavaScript file I've coded all Quiz Codes -->
     <script src="js/script.js"></script>
+    <script>
+      function reset_zoom(){
+        document.body.style.zoom = 1.0;
+      }
+      
+    </script>
   </body>
 </html>

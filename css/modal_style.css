@@ -98,7 +98,7 @@ body {
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
     rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
   width: 500px;
-  max-width: 80%;
+  max-width: 92%;
 }
 
 .modal.active {
@@ -145,7 +145,7 @@ body {
 }
 
 .modal-body {
-  padding: 25px 25px;
+  padding: 25px 20px;
   transition: linear 0.5s;
 }
 label {
