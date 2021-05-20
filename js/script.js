@@ -9,12 +9,6 @@ const time_line = document.querySelector("header .time_line");
 const timeText = document.querySelector(".timer .time_left_txt");
 const timeCount = document.querySelector(".timer .timer_sec");
 
-function cleanup(s){
-    s = s.replace(/&quot;/g, "''")
-    s = s.replace(/&#039;/g, "'")
-    s = s.replace(/&amp;/g, "&")
-    return s
-}
 
 // if exitQuiz button clicked
 exit_btn.onclick = ()=>{
@@ -106,7 +100,10 @@ function optionSelected(answer){
     clearInterval(counter); //clear counter
     clearInterval(counterLine); //clear counterLine
     let userAns = answer.innerText; //getting user selected option
-    let correcAns = cleanup(questions[que_count].answer); //getting correct answer from array
+    var dummy_text = questions[que_count].answer;
+    var dummy_span = document.createElement('span');
+    dummy_span.innerHTML = dummy_text;
+    let correcAns = dummy_span.innerText; //getting correct answer from array
     const allOptions = option_list.children.length; //getting all option items
     
     if(userAns == correcAns){ //if user selected option is equal to array's correct answer
