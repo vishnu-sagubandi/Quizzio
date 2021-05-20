@@ -97,12 +97,12 @@
             class="form-control"
             min="1"
             max="15"
-            value="10"
+            value="5"
           />
 
           <br />
 
-          <input type="hidden" id="type" name="type" value="multiple" />
+          <input type="hidden" id="type" name="type" value="any" />
           <input type="submit" value="Submit" />
         </form>
       </div>
@@ -114,15 +114,37 @@
         var cat_value = document.getElementById("category").value;
         var difficulty = document.getElementById("difficulty").value;
         var amount_select = document.getElementById("amount");
-        if (cat_value == 19 && difficulty == "easy") {
-          amount_select.setAttribute("max", "8");
-          amount_select.value = 8;
-        } else if (cat_value == 19 && difficulty == "medium") {
-          amount_select.setAttribute("max", "13");
-          amount_select.value = 10;
+        if (difficulty == "easy") {
+          if (cat_value == 13) {
+            amount_select.setAttribute("max", "8");
+          } else if (cat_value == 19) {
+            amount_select.setAttribute("max", "14");
+          } else if (cat_value == 25) {
+            amount_select.setAttribute("max", "9");
+          } else if (cat_value == 26) {
+            amount_select.setAttribute("max", "13");
+          } else if (cat_value == 29) {
+            amount_select.setAttribute("max", "12");
+          } else if (cat_value == 30) {
+            amount_select.setAttribute("max", "9");
+          } else {
+            amount_select.setAttribute("max", "15");
+          }
+        } else if (difficulty == "easy") {
+          if (cat_value == 13) {
+            amount_select.setAttribute("max", "13");
+          } else if (cat_value == 25) {
+            amount_select.setAttribute("max", "11");
+          } else if (cat_value == 30) {
+            amount_select.setAttribute("max", "10");
+          } else {
+            amount_select.setAttribute("max", "15");
+          }
+        } else if (difficulty == "hard") {
+          amount_select.setAttribute("max", "5");
         } else {
-          amount_select.setAttribute("max", "50");
-          amount_select.value = 10;
+          amount_select.setAttribute("max", "15");
+          amount_select.value = 5;
         }
       }
     </script>

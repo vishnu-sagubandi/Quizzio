@@ -23,14 +23,14 @@
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="-1" />
   </head>
-  <body onload="reset_zoom()">
+  <body>
     <div id="preloaderbody" class="preloader-body">
       <div class="preloader">
         <span class="whirly-loader"> Loading&#8230 </span>
       </div>
     </div>
     <!-- Info Box -->
-    <div class="info_box">
+    <div class="info_box activeInfo">
       <div class="info-title"><span>Some Rules of this Quiz</span></div>
       <div class="info-list">
         <div class="info">
@@ -102,11 +102,5 @@
     <script src="js/questions.js"></script>
     <!-- Inside this JavaScript file I've coded all Quiz Codes -->
     <script src="js/script.js"></script>
-    <script>
-      function reset_zoom() {
-        document.body.style.zoom = 1.0;
-        info_box.classList.add("activeInfo");
-      }
-    </script>
   </body>
 </html>
