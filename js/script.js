@@ -10,9 +10,9 @@ const timeText = document.querySelector(".timer .time_left_txt");
 const timeCount = document.querySelector(".timer .timer_sec");
 
 function cleanup(s){
-    s = s.replace("&quot;", "''")
-    s = s.replace("&#039;", "'")
-    s = s.replace("&amp;", "&")
+    s = s.replace(/&quot;/g, "''")
+    s = s.replace(/&#039;/g, "'")
+    s = s.replace(/&amp;/g, "&")
     return s
 }
 
