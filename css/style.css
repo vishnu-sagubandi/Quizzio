@@ -51,12 +51,31 @@ body {
   pointer-events: auto;
   transform: translate(-50%, -50%) scale(1);
 }
+.emoji.activeEmoji {
+  opacity: 1;
+  z-index: 10;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+  transition: all 0.5s ease-in-out;
+}
+
+.emoji {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 200px;
+  height: 200px;
+  z-index: 10;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
 
 .info_box {
   width: 540px;
   background: #fff;
   border-radius: 5px;
-  transform: translate(-50%, -50%) scale(1);
+  transform: translate(-50%, -50%) scale(0);
   opacity: 0;
   pointer-events: none;
   transition: all 0.3s ease;
@@ -114,7 +133,7 @@ body {
   width: 550px;
   background: #fff;
   border-radius: 5px;
-  transform: translate(-50%, -50%) scale(1);
+  transform: translate(-50%, -50%) scale(0);
   opacity: 0;
   pointer-events: none;
   transition: all 0.3s ease;
@@ -319,7 +338,7 @@ footer button.show {
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  transform: translate(-50%, -50%) scale(1);
+  transform: translate(-50%, -50%) scale(0);
   opacity: 0;
   pointer-events: none;
   transition: all 0.3s ease;
@@ -392,6 +411,11 @@ footer button.show {
   .result_box,
   .quiz_box {
     width: 92%;
+  }
+
+  .emoji {
+    width: 150px;
+    height: 150px;
   }
 
   .info_box .info-title {

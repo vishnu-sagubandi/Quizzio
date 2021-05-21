@@ -8,6 +8,9 @@ const option_list = document.querySelector(".option_list");
 const time_line = document.querySelector("header .time_line");
 const timeText = document.querySelector(".timer .time_left_txt");
 const timeCount = document.querySelector(".timer .timer_sec");
+const yes_emoji = document.querySelector(".yes_emoji");
+const no_emoji = document.querySelector(".no_emoji");
+const wait_emoji = document.querySelector(".wait_emoji");
 
 
 // if exitQuiz button clicked
@@ -113,11 +116,15 @@ function optionSelected(answer){
         answer.classList.add("correct"); //adding green color to correct selected option
         answer.insertAdjacentHTML("beforeend", tickIconTag); //adding tick icon to correct selected option
         console.log("Correct Answer");
+        yes_emoji.classList.add("activeEmoji");
+        setTimeout(()=>{yes_emoji.classList.remove("activeEmoji");}, 2000);
         console.log("Your correct answers = " + userScore);
     }else{
         answer.classList.add("incorrect"); //adding red color to correct selected option
         answer.insertAdjacentHTML("beforeend", crossIconTag); //adding cross icon to correct selected option
         console.log("Wrong Answer");
+        no_emoji.classList.add("activeEmoji");
+        setTimeout(()=>{no_emoji.classList.remove("activeEmoji");}, 2000);
 
         for(i=0; i < allOptions; i++){
             if(option_list.children[i].textContent == correcAns){ //if there is an option which is matched to an array answer 
@@ -176,6 +183,8 @@ function startTimer(time){
                     option_list.children[i].setAttribute("class", "option correct"); //adding green color to matched option
                     option_list.children[i].insertAdjacentHTML("beforeend", tickIconTag); //adding tick icon to matched option
                     console.log("Time Off: Auto selected correct answer.");
+                    wait_emoji.classList.add("activeEmoji");
+                    setTimeout(()=>{wait_emoji.classList.remove("activeEmoji");}, 2000);
                 }
             }
             for(i=0; i < allOptions; i++){
