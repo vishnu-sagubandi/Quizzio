@@ -11,6 +11,7 @@ const timeCount = document.querySelector(".timer .timer_sec");
 const yes_emoji = document.querySelector(".yes_emoji");
 const no_emoji = document.querySelector(".no_emoji");
 const wait_emoji = document.querySelector(".wait_emoji");
+const emoji = document.querySelectorAll('.emoji');
 
 
 // if exitQuiz button clicked
@@ -56,6 +57,9 @@ const bottom_ques_counter = document.querySelector("footer .total_que");
 
 // if Next Que button clicked
 next_btn.onclick = ()=>{
+    for(i=0; i < emoji.length; i++){
+        emoji[i].classList.remove("activeEmoji");
+    }
     if(que_count < questions.length - 1){ //if question count is less than total question length
         que_count++; //increment the que_count value
         que_numb++; //increment the que_numb value
@@ -67,6 +71,7 @@ next_btn.onclick = ()=>{
         startTimerLine(widthValue); //calling startTimerLine function
         timeText.textContent = "Time Left"; //change the timeText to Time Left
         next_btn.classList.remove("show"); //hide the next button
+        
     }else{
         clearInterval(counter); //clear counter
         clearInterval(counterLine); //clear counterLine
@@ -117,14 +122,14 @@ function optionSelected(answer){
         answer.insertAdjacentHTML("beforeend", tickIconTag); //adding tick icon to correct selected option
         console.log("Correct Answer");
         yes_emoji.classList.add("activeEmoji");
-        setTimeout(()=>{yes_emoji.classList.remove("activeEmoji");}, 2000);
+        setTimeout(()=>{yes_emoji.classList.remove("activeEmoji");}, 1500);
         console.log("Your correct answers = " + userScore);
     }else{
         answer.classList.add("incorrect"); //adding red color to correct selected option
         answer.insertAdjacentHTML("beforeend", crossIconTag); //adding cross icon to correct selected option
         console.log("Wrong Answer");
         no_emoji.classList.add("activeEmoji");
-        setTimeout(()=>{no_emoji.classList.remove("activeEmoji");}, 2000);
+        setTimeout(()=>{no_emoji.classList.remove("activeEmoji");}, 1500);
 
         for(i=0; i < allOptions; i++){
             if(option_list.children[i].textContent == correcAns){ //if there is an option which is matched to an array answer 
@@ -159,7 +164,7 @@ function showResult(){
         scoreText.innerHTML = scoreTag;
     }
     else{ // if user scored less than 1
-        let scoreTag = '<p>You got only <span>'+ userScore +'</span> out of <span>'+ questions.length +'</span>and sorry 😐 . </br>Better luck next time!!</p>';
+        let scoreTag = '<p>You got only <span>'+ userScore +'</span> out of <span>'+ questions.length +'</span> 😐 . </br>Better luck next time!!</p>';
         scoreText.innerHTML = scoreTag;
     }
 }
